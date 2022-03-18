@@ -7,14 +7,14 @@ if [ -e "$CHECKFILE" ] && ! grep -q "z2b" $CHECKFILE; then
 	sed -i "/d.title =/c\d.title = false" $CHECKFILE
 	sed -i "/m.description =/c\m.description = false" $CHECKFILE
 	sed -i "s#s:section#-- s:section#g" $CHECKFILE
-	cp /usr/lib/lua/luci/view/openclash/myip.htm /usr/lib/lua/luci/view/openclash/myip.htm.bak
-	echo "<!DOCTYPE html><html></html>" > /usr/lib/lua/luci/view/openclash/myip.htm
-	cp /usr/lib/lua/luci/view/openclash/developer.htm /usr/lib/lua/luci/view/openclash/developer.htm.bak
-	echo "<!DOCTYPE html><html></html>" > /usr/lib/lua/luci/view/openclash/developer.htm
 	echo -e "  Remove MyIP and Credit..."
 fi
 unset CHECKFILE
 
+	cp /usr/lib/lua/luci/view/openclash/myip.htm /usr/lib/lua/luci/view/openclash/myip.htm.bak
+	echo "<!DOCTYPE html><html></html>" > /usr/lib/lua/luci/view/openclash/myip.htm
+	cp /usr/lib/lua/luci/view/openclash/developer.htm /usr/lib/lua/luci/view/openclash/developer.htm.bak
+	echo "<!DOCTYPE html><html></html>" > /usr/lib/lua/luci/view/openclash/developer.htm
 
 export CHECKFILE="/usr/lib/lua/luci/controller/openclash.lua"
 if [ -f "$CHECKFILE" ] && ! grep -q "z2b" $CHECKFILE; then
