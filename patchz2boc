@@ -20,6 +20,7 @@ export CHECKFILE="/usr/lib/lua/luci/controller/openclash.lua"
 if [ -f "$CHECKFILE" ] && ! grep -q "z2b" $CHECKFILE; then
 	sed -i 's|entry({"admin", "services", "openclash", "config-subscribe"}|---entry({"admin", "services", "openclash", "config-subscribe"}|g' $CHECKFILE
 	sed -i 's|entry({"admin", "services", "openclash", "rule-providers-settings"}|---entry({"admin", "services", "openclash", "rule-providers-settings"}|g' $CHECKFILE
+	sed -i 's|entry({"admin", "services", "openclash", "servers"},cbi("openclash/servers")|---entry({"admin", "services", "openclash", "servers"},cbi("openclash/servers")|g' $CHECKFILE
 	sed -i 's|60).leaf = true|nil).leaf = true|g' $CHECKFILE
 	sed -i 's|70).leaf = true|60).leaf = true|g' $CHECKFILE
 	sed -i 's|80).leaf = true|70).leaf = true|g' $CHECKFILE
