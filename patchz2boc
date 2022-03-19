@@ -18,6 +18,8 @@ unset CHECKFILE
 
 export CHECKFILE="/usr/lib/lua/luci/controller/openclash.lua"
 if [ -f "$CHECKFILE" ] && ! grep -q "z2b" $CHECKFILE; then
+	sed -i 's|entry({"admin", "services", "openclash", "config-subscribe"}|---entry({"admin", "services", "openclash", "config-subscribe"}|g' $CHECKFILE
+	sed -i 's|entry({"admin", "services", "openclash", "rule-providers-settings"}|---entry({"admin", "services", "openclash", "rule-providers-settings"}|g' $CHECKFILE
 	sed -i 's|60).leaf = true|nil).leaf = true|g' $CHECKFILE
 	sed -i 's|70).leaf = true|60).leaf = true|g' $CHECKFILE
 	sed -i 's|80).leaf = true|70).leaf = true|g' $CHECKFILE
@@ -48,8 +50,7 @@ if [ -f "$CHECKFILE" ] && ! grep -q "sembunyi" $CHECKFILE; then
 #	sed -i 's|hid_3.style.display = "none"|hid_3.style.display = "true"|g' $CHECKFILE
 	
 #	sed -i '/<img id="logo"/c\<img id="logo" src="<%=media%>/openclash.png" title="Hello, World!" alt="Openclash" width="250" onclick="return homepage()" />' $CHECKFILE
-	logger "   Clash Premium Patched 10 with Config Editor..."
-	echo -e "   Clash Premium Patched 10 with Config Editor..."
+	echo -e "   Hidden Wiki etc"
 fi
 unset CHECKFILE
 
